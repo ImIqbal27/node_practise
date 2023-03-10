@@ -27,7 +27,6 @@ async function run() {
     app.get("/user", async (req, res) => {
       const cursor = userCollection.find({});
       const users = await cursor.toArray();
-      // console.log(users);
       res.send(users);
     });
 
@@ -48,15 +47,6 @@ run().catch(console.dir);
 app.get("/users", (req, res) => {
   res.send(users);
 });
-
-// app.post("/user", (req, res) => {
-//   console.log("post API called");
-//   const user = req.body;
-//   user.id = users.length + 1;
-//   users.push(user);
-//   res.send(user);
-//   console.log(users);
-// });
 
 app.listen(port, () => {
   console.log(`Node running on port ${port} by listen`);
