@@ -4,9 +4,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
-app.get("/", (req, res) => {
-  res.send(" Simple node server running ...by get");
-});
 app.use(cors());
 app.use(express.json());
 
@@ -43,6 +40,10 @@ async function run() {
 run().catch(console.dir);
 
 // ------------------------------------------
+
+app.get("/", (req, res) => {
+  res.send(" Simple node server running ...");
+});
 
 app.get("/users", (req, res) => {
   res.send(users);
